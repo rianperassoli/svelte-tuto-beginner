@@ -21,7 +21,7 @@
 <Modal message="Message asd asd" {showModal} on:click={toogleModal}/>
 
 <main>
-  <button on:click={toogleModal}>Open modal</button>
+  <button on:click|once={toogleModal}>Open modal</button>
   {#each people as person (person.id)}
     <div>
       <h4>{person.name}</h4>
