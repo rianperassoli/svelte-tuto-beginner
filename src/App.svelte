@@ -18,7 +18,15 @@
   };
 </script>
 
-<Modal message="Message asd asd" {showModal} on:click={toogleModal}/>
+<Modal {showModal} on:click={toogleModal}>
+  <input type="text" placeholder="name" />
+  <input type="text" placeholder="belt colour" />
+  <button>Add person</button>
+
+  <div slot="title">
+    <h3>Add a new person</h3>
+  </div>
+</Modal>
 
 <main>
   <button on:click|once={toogleModal}>Open modal</button>
