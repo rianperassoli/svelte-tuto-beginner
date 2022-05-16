@@ -1,6 +1,9 @@
 <script>
-  let name = "Rian";
+  let firstName = "Rian";
+  let lastName = "Perassoli";
   let beltColour = "black";
+
+  $: fullName = `${firstName} ${lastName}`
 
   const handleClick = () => {
     beltColour = "orange";
@@ -12,15 +15,10 @@
 </script>
 
 <main>
-  <h1>Hello {name}!</h1>
-  <p style="color: {beltColour}">{beltColour} belt</p>
+  <p>{fullName} - {beltColour} belt</p>
 
-  <button on:click={handleClick}>update belt color</button>
-
-  <!-- When need a two way data binding use the bind:value.  -->
-  <!-- When need a one way data binding use value and or on:input.  -->
-
-  <!-- <input type="text" on:input={handleInput} value={beltColour}/> -->
+  <input type="text" bind:value={firstName}/>
+  <input type="text" bind:value={lastName}/>
   <input type="text" bind:value={beltColour}/>
 </main>
 
