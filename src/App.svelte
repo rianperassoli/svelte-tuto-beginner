@@ -2,17 +2,26 @@
   let name = "Rian";
   let beltColour = "black";
 
-  const handleClick = ()=> {
-    beltColour = 'orange'
-  }
+  const handleClick = () => {
+    beltColour = "orange";
+  };
 
+  const handleInput = (event) => {
+    beltColour = event.target.value;
+  };
 </script>
 
 <main>
   <h1>Hello {name}!</h1>
-  <p>{beltColour} belt</p>
+  <p style="color: {beltColour}">{beltColour} belt</p>
 
   <button on:click={handleClick}>update belt color</button>
+
+  <!-- When need a two way data binding use the bind:value.  -->
+  <!-- When need a one way data binding use value and or on:input.  -->
+
+  <!-- <input type="text" on:input={handleInput} value={beltColour}/> -->
+  <input type="text" bind:value={beltColour}/>
 </main>
 
 <style>
