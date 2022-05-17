@@ -1,11 +1,17 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
+  let dispatch = createEventDispatcher();
+
   let name;
   let beltColour;
   let age;
   let skills = [];
 
   const handleSubmit = () => {
-    console.log(name, beltColour, age, skills);
+    const person = { name, beltColour, age, skills, id: Math.random() };
+
+    dispatch('addPerson', person);
   };
 </script>
 
@@ -17,7 +23,7 @@
   <input type="checkbox" bind:group={skills} value="fighting" />fighting<br />
   <input type="checkbox" bind:group={skills} value="sneaking" />sneaking<br />
   <input type="checkbox" bind:group={skills} value="running" />running<br />
-  
+
   <label for="select-belt-colour">Belt colour:</label>
   <select id="select-belt-colour" bind:value={beltColour}>
     <option value="black">black</option>

@@ -17,10 +17,17 @@
   const toogleModal = () => {
     showModal = !showModal;
   };
+
+  const handleAddPersonClick = (event) => {
+    const person = event.detail;
+    people = [person, ...people];
+
+    showModal = false;
+  };
 </script>
 
 <Modal {showModal} on:click={toogleModal}>
-  <AddPersonForm />
+  <AddPersonForm on:addPerson={handleAddPersonClick} />
 </Modal>
 
 <main>
